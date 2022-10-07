@@ -27,8 +27,8 @@ namespace Patriot
             services.AddControllersWithViews();
             services.AddDomainAutoMapper();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-            services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddScoped<DataContext>();
+            //services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddScoped<DataContext>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -50,10 +50,10 @@ namespace Patriot
             //    RequestPath = new PathString("/App_GlobalResources")
             //});
 
-            using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-            {
-                ((DataContext)scope.ServiceProvider.GetService(typeof(DataContext))).Database.Migrate();
-            }
+            //using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            //{
+            //    ((DataContext)scope.ServiceProvider.GetService(typeof(DataContext))).Database.Migrate();
+            //}
                 app.UseRouting();
 
             app.UseAuthorization();
