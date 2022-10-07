@@ -1,0 +1,347 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=*Libre+Franklin:wght@100*&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Patriot</title>
+</head>
+<style>
+    .form-validate {
+        font-size: 12px;
+        font-weight: 600;
+        color: floralwhite
+    }
+
+    body {
+        font-family: 'Libre Franklin', sans-serif;
+    }
+
+    .heading4 {
+        font-family: 'Libre Franklin', sans-serif;
+        color: #4E4E4E;
+        font-weight: bold;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+    }
+    /* .navbar{
+                font-family: 'Libre Franklin', sans-serif;
+                font-style: normal;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 24px;
+                color: #4E4E4E;
+            } */
+
+
+
+    .lines {
+        display: flex;
+    }
+
+    .line {
+        margin: 10px;
+        width: 70px;
+    }
+
+    .line-red {
+        border: 1px solid red;
+    }
+
+    .line-grey {
+        border: 1px solid grey;
+    }
+
+    .hero-text h1 {
+        font-family: 'Inter', sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 56px;
+    }
+
+    .hero-text p {
+        font-family: 'Inter', sans-serif;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .hero-text button {
+        background: #EC1C24;
+        box-shadow: 0px 8px 16px rgba(78, 78, 78, 0.2);
+        color: white;
+        border: none;
+        padding: 15px 60px;
+    }
+
+    .relative {
+        position: relative;
+        z-index: 2;
+        margin-top: -90px;
+    }
+
+    .relative-2 {
+        margin-top: -80px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .section1 {
+        background-image: url(images/Section1.png);
+        background-repeat: no-repeat;
+        background-size: 100% 99%;
+        /* min-height: 1150px; */
+        /* position: absolute;
+        top: -75px; */
+        padding: 125px 15px;
+        z-index: 2;
+        color: white;
+        /* transform: translate(0px,-75px); */
+        display: flex;
+        align-items: center;
+    }
+
+    .section2 {
+        /* transform: translate(0px,-160px); */
+        background-image: url(images/section2.png);
+        background-repeat: no-repeat;
+        background-size: 80% 99%;
+        background-position: right;
+        z-index: 1;
+        margin-bottom: 50px;
+    }
+
+    .clickp {
+        clip-path: polygon(100% 0, 100% 70%, 66% 100%, 0 100%, 0 0);
+        /* padding: 250px 10px 75px; */
+        padding: 220px 0px;
+    }
+
+    .section2-text h1 {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 56px;
+        /* or 117% */
+
+        color: #4E4E4E;
+    }
+
+    .section2-text p {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        /* or 150% */
+
+        color: #4E4E4E;
+    }
+
+    .section2-text-s {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        /* or 150% */
+        background-color: #63111B;
+        color: #FFFFFF;
+        padding: 20px 25px 6.6%;
+    }
+
+    .section3 {
+        background-image: url(images/hhh.png),url(images/bg.png);
+        background-repeat: no-repeat;
+        background-position: top right, center left;
+        /* background-size: auto,420px; */
+        padding-bottom: 40px;
+    }
+
+    .bg-vector {
+        background-image: url(images/vector.png);
+        background-repeat: no-repeat;
+        background-position: top right;
+        padding-top: 86px;
+    }
+
+    .vectors {
+        gap: 35px;
+    }
+
+    .section3-text h1, .heading1 {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 56px;
+        /* or 117% */
+
+
+        color: #4E4E4E;
+    }
+
+    /* .inner-bg{
+        background-image: url(images/bg.png);
+        background-repeat: no-repeat;
+        background-position: top left;
+    } */
+
+
+    .sect4-clp {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+        color: #FFFFFF;
+        clip-path: polygon(100% 0, 100% 75%, 84% 100%, 0 100%, 0 0);
+        background: #EC1C24;
+        padding: 50px 35px 100px;
+        box-shadow: 5px 10px 8px 10px #888888;
+    }
+
+    .section4-text div {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        /* or 150% */
+
+        color: #4E4E4E;
+    }
+
+    .section4-text-card {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 40px;
+        /* or 125% */
+
+        color: #4E4E4E;
+    }
+
+    .section4-text-card {
+        background: #951525;
+        box-shadow: 0px 8px 16px rgba(78, 78, 78, 0.2);
+    }
+
+    .section4-text-card1 {
+        background: #951525;
+        box-shadow: 0px 8px 16px rgba(78, 78, 78, 0.2);
+    }
+
+    .s4-clp {
+        clip-path: polygon(100% 0, 100% 84%, 84% 100%, 0 100%, 0 0);
+        padding: 50px 59px 100px;
+        height: 100%;
+    }
+
+    .section6 {
+        background: #951525;
+        color: white;
+    }
+
+    .footer {
+        background-color: #63111B;
+        color: white;
+    }
+
+    .footer-border {
+        border: 1px solid #BD464F;
+    }
+
+    textarea {
+        resize: none;
+        width: 100%;
+        background-color: transparent;
+        border: 2px solid white;
+        padding: 5px;
+    }
+
+    .inputs input {
+        width: 100%;
+        background-color: transparent;
+        border: 2px solid white;
+        padding: 5px;
+    }
+
+    .inputs div {
+        margin-bottom: 15px;
+    }
+
+    .sbm {
+        background: #D9D9D9;
+        color: #951525;
+        border: none;
+        font-family: 'Supreme' sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 18px;
+        /* identical to box height, or 100% */
+        text-transform: uppercase;
+    }
+
+    .slider-indcators {
+        margin-left: 60px !important;
+        bottom: 70% !important;
+        height: 50px;
+    }
+
+        .slider-indcators button {
+            background-color: red !important;
+            width: 70px !important;
+            top: 200px !important;
+        }
+
+    .shadow {
+        box-shadow: 0px 8px 16px rgba(78, 78, 78, 0.2);
+    }
+
+    .icons div {
+        width: 60px;
+        height: 60px;
+    }
+
+    .fontlibre {
+        font-family: 'Libre Franklin', sans-serif;
+    }
+
+    @@media(max-width:767px) {
+        .slider-indcators {
+            margin-left: 60px !important;
+            bottom: 95% !important;
+            height: 50px;
+        }
+    }
+</style>
+<body>
+    @RenderBody()
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
