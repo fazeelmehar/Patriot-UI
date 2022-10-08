@@ -24,7 +24,8 @@ namespace Patriot
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+           
             services.AddDomainAutoMapper();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             //services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
