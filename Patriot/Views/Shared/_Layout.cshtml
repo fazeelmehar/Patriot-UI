@@ -290,7 +290,7 @@
 
     .s4-clp {
         clip-path: polygon(100% 0, 100% 84%, 84% 100%, 0 100%, 0 0);
-        padding: 50px 40px 100px;
+        padding: 50px 40px 100px 20px;
         height: 100%;
     }
 
@@ -378,6 +378,15 @@
             padding-right:0px;
         }
     }
+
+
+    @@media(max-width:600px) {
+        .p-sm {
+            padding: 0px !important;
+        }
+    }
+
+
 </style>
 <body>
     @RenderBody()
