@@ -18,16 +18,13 @@ namespace Patriot.Controllers
         private readonly ILogger<HomeController> _logger;
         private DataContext _dataContext;
         private IMapper _mapper;
-        public HomeController()
-        {
 
+        public HomeController(ILogger<HomeController> logger, IMapper mapper, DataContext dataContext)
+        {
+            _logger = logger;
+            _mapper = mapper;
+            _dataContext = dataContext;
         }
-        //public HomeController(ILogger<HomeController> logger, IMapper mapper, DataContext dataContext)
-        //{
-        //    _logger = logger;
-        //    _mapper = mapper;
-        //    _dataContext = dataContext;
-        //}
 
         public IActionResult Index()
         {

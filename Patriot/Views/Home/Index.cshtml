@@ -162,16 +162,16 @@
 
                 <div class="col-lg-4 bg-white p-top px-4">
                     <div class="section2-text">
-                        <h1 >
+                        <h1>
                             A unique combined  <br class="d-lg-block d-none" /> approach,
                             unlike <br class="d-lg-block d-none" /> any other in the <br class="d-lg-block d-none" />  industry,
                             ensuring  <br class="d-lg-block d-none" /> increased revenue <br class="d-lg-block d-none" /> and profits.
                         </h1>
                     </div>
                     @*<div class="w-50 section2-text pt-5">
-                        <p>
-                            Made up of legal and industry professionals, in tandem with tech experts, Patriot International uses an analytical approach to excel in aged receivable collections.
-                        </p>
+                    <p>
+                    Made up of legal and industry professionals, in tandem with tech experts, Patriot International uses an analytical approach to excel in aged receivable collections.
+                    </p>
                     </div>*@
                 </div>
             </div>
@@ -347,7 +347,7 @@
                 </div>
             </div>
 
-            <div class="row justify-content-between align-items-end">
+            <div id="affialiates"id class="row justify-content-between align-items-end">
                 <div class="col-lg-2 col-md-2 col-sm-2 col-2 p-0">
                     <img src="~/images/Rectangle 77.png" width="100%">
                 </div>
@@ -377,7 +377,10 @@
                                 <h6 class="fw-bold heading4">631-870-4040</h6>
                             </div>
                             <div class="col-lg-3">
-                                <h6 class="fw-bold heading4">Mail <br> info@patriotrevenue.com</h6>
+                                <h6 class="fw-bold heading4">
+                                    Mail <br>
+                                    <a class="mailNSec" href="mailto:contactus@patriotcompli.com">contactus@patriotcompli.com</a>
+                                </h6>
                             </div>
                         </div>
 
@@ -392,26 +395,9 @@
                         </div>
 
                     </div>
-                    <!-- <div class="col-lg-3 col-md-3 col-sm-3 px-1">
-                        <div class="">
-                            <h1>The Patriot Group</h1>
-                            <p class="pt-5">Experts in revenue recovery, The Patriot Group’s strategic framework, creative workflows, and aggressive appeals has enabled The Patriot Group to excel in collection of current claims. </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 px-1">
-                        <div class="">
-                            <h6>Phone no.</h6>
-                            <h6> 0300 xxxxxxx</h6>
-                            <p class="pt-5">The Patriot Group works tirelessly to get every claim line billed and quickly paid at maximum reimbursement rates, regardless of network status. </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 px-1">
-                        <div class="">
-                            <h6>Mail <br> info@patriotcompll.com</h6>
-                        </div>
-                    </div> -->
                 </div>
-
+            </div>
+            <div class="container-fluid p-4 px-lg-5">
                 <div class="row">
                     <div class="col-lg-2 col-md-2 col-sm-2 px-1">
                         <img src="~/images/image 1.png" class="w-75" alt="">
@@ -426,7 +412,9 @@
                                 <h6 class="heading4">631-870-4041</h6>
                             </div>
                             <div class="col-lg-3">
-                                <h6 class="heading4">Mail <br> info@patriotcompll.com</h6>
+                                <h6 class="heading4">Mail <br>
+                                    <a class="mailNSec" href="mailto:tforce@forcelaw.net">tforce@forcelaw.net</a>
+                                    </h6>
                             </div>
                         </div>
 
@@ -443,135 +431,120 @@
                     </div>
 
                 </div>
-
-                <!-- <div class="row mt-5 pt-5">
-                    <div class="col-lg-3">
-                        <img src="~/images/image 1.png" alt="">
-                    </div>
-                    <div class="col-lg-3 p-0">
-                        <div>
-                            <h1>The Force Law Firm</h1>
-                            <p class="pt-5">An experienced healthcare regulatory law firm, Force Law is available to defend you and your practice against audits, recoupments, and investigations,</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 mx-5">
-                        <div class="">
-                            <h6>Phone no. <br> 0300 xxxxxxx</h6>
-                            <p class="pt-5">as well as to provide training and guidance on various laws, rules, and regulations governing the healthcare industry, helping to make sure your practice is protected at every turn. </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-2">
-                        <div class="">
-                            <h6>Mail <br> info@patriotcompll.com</h6>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
-        </div>
-
-
-    </div>
-    <div class="section6 p-5">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6">
-                    <h1 class="fw-bold text-uppercase">Get In Touch <br> with us</h1>
-                </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-lg-6">
-                    <p class="">For questions, concerns, or to schedule an introductory call – please <br class="d-none d-lg-block" /> use the form. We look forward to speaking with you!</p>
-                </div>
-                <div class="col-lg-1">
-                </div>
-                <div class="col-lg-3 inputs ">
-                    @using (Html.BeginForm("Index", "Home"))
-                    {
-                        <div>
-                            <label>Your name:</label>
-                            @Html.TextBoxFor(x=>x.FullName)
-                            @Html.ValidationMessageFor(x=>x.FullName,"",new{@class="form-validate"})
-                        </div>
-
-                        <div>
-                            <label>Email address:</label>
-                            @Html.TextBoxFor(x=>x.Email)
-                            @Html.ValidationMessageFor(x=>x.Email,"",new{@class="form-validate"})
-                        </div>
-
-                        <div>
-                            <label>Phone number:</label>
-                            @Html.TextBoxFor(x=>x.PhoneNumber)
-                            @Html.ValidationMessageFor(x=>x.PhoneNumber,"",new{@class="form-validate"})
-                        </div>
-
-                        <div>
-                            <label>Mesaage:</label>
-                            @Html.TextAreaFor(x=>x.Message,5)
-                            @Html.ValidationMessageFor(x=>x.Message,"",new{@class="form-validate"})
-                        </div>
-
-                        <div class="mt-3">
-                            <button type="submit" class="float-end px-5     py-3 sbm">Submit</button>
-                        </div>
-                    }
-                </div>
             </div>
         </div>
     </div>
-    <div class="footer py-5">
-        <div class="container-fluid py-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-7">
-                    <div class="row">
-                        <div class="col-lg-7">
-                        </div>
-                        <div class="col-lg-4">
-                            <p class="fw-bold">
-                                Quick Links
-                            </p>
-                        </div>
-                    </div>
-                </div>
 
 
+</div>
+<div class="section6 p-5">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                <h1 class="fw-bold text-uppercase">Get In Touch <br> with us</h1>
             </div>
-
-            <div class="row justify-content-center">
-                <div class="col-lg-7 col-md-9 col-sm-11">
-                    <div class="row">
-                        <div class="col-lg-1 col-md-1 col-sm-1">
-                            <p><i class="fa fa-phone"></i></p>
-                        </div>
-                        <div class="col-lg-6 col-md-3 col-sm-3">
-                            <p>631-870-4040</p>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3">
-                            <p>Blog</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-7 col-md-9 col-sm-11">
-                    <div class="row">
-                        <div class="col-lg-1 col-md-1 col-sm-1">
-                            <p><i class="fa fa-envelope"></i></p>
-                        </div>
-                        <div class="col-lg-6 col-md-3 col-sm-3">
-                            <p>info@patriotrevenue.com</p>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3">
-                            <p>Location</p>
-                        </div>
-                    </div>
-                </div>
-
+        </div>
+        <div class="row mt-3">
+            <div class="col-lg-6">
+                <p class="">For questions, concerns, or to schedule an introductory call – please <br class="d-none d-lg-block" /> use the form. We look forward to speaking with you!</p>
             </div>
+            <div class="col-lg-1">
+            </div>
+            <div class="col-lg-3 inputs ">
+                @using (Html.BeginForm("Index", "Home"))
+                {
+                    <div>
+                        <label>Your name:</label>
+                        @Html.TextBoxFor(x=>x.FullName)
+                        @Html.ValidationMessageFor(x=>x.FullName,"",new{@class="form-validate"})
+                    </div>
 
-            <div class="row justify-content-center">
-                <div class="col-lg-7 col-md-9 col-sm-11 footer-border"></div>
+                    <div>
+                        <label>Email address:</label>
+                        @Html.TextBoxFor(x=>x.Email)
+                        @Html.ValidationMessageFor(x=>x.Email,"",new{@class="form-validate"})
+                    </div>
+
+                    <div>
+                        <label>Phone number:</label>
+                        @Html.TextBoxFor(x=>x.PhoneNumber)
+                        @Html.ValidationMessageFor(x=>x.PhoneNumber,"",new{@class="form-validate"})
+                    </div>
+
+                    <div>
+                        <label>Mesaage:</label>
+                        @Html.TextAreaFor(x=>x.Message,5)
+                        @Html.ValidationMessageFor(x=>x.Message,"",new{@class="form-validate"})
+                    </div>
+
+                    <div class="mt-3">
+                        <button type="submit" class="float-end px-5     py-3 sbm">Submit</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer py-5">
+    <div class="container-fluid py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="row">
+                    <div class="col-lg-7">
+                    </div>
+                    <div class="col-lg-4">
+                        <p class="fw-bold">
+                            Quick Links
+                        </p>
+                    </div>
+                </div>
             </div>
 
 
         </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-md-9 col-sm-11">
+                <div class="row">
+                    <div class="col-lg-1 col-md-1 col-sm-1">
+                        <p>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23.0196 16.9225L20.1382 14.0387C19.5692 13.4479 18.8816 13.138 18.1527 13.138C17.4288 13.138 16.7363 13.4479 16.1503 14.0314L14.6491 15.5326C14.574 15.4939 14.5014 15.4576 14.4336 15.4237C14.2569 15.3365 14.0874 15.2493 13.9421 15.1573C12.4191 14.1912 11.0317 12.9249 9.69753 11.2905C9.10915 10.5472 8.70235 9.92249 8.40699 9.30746C8.78714 8.95153 9.1455 8.58834 9.48448 8.23968C9.62733 8.0944 9.77745 7.94428 9.92273 7.799C10.5232 7.19854 10.8404 6.49877 10.8404 5.77722C10.8404 5.05084 10.5232 4.35107 9.92273 3.75543L8.49175 2.32445C8.32952 2.16222 8.17456 2.00484 8.01478 1.83778L8.00751 1.83052C7.69516 1.50848 7.35861 1.1671 7.02203 0.854734C6.45062 0.295405 5.7678 0 5.04625 0C4.32952 0 3.63949 0.297822 3.05112 0.85956L1.24725 2.66342C0.518439 3.38498 0.106812 4.26632 0.0220689 5.28328C-0.0747832 6.49394 0.145557 7.77239 0.714579 9.30024C1.5717 11.6295 2.86228 13.7844 4.77511 16.0823C7.0923 18.8523 9.89111 21.0434 13.09 22.5957L13.0924 22.5981C14.3297 23.184 15.9859 23.8717 17.8188 23.9903H17.8406C17.9471 23.9952 18.0561 24 18.1723 24C19.4871 24 20.5476 23.5448 21.412 22.6078C21.4266 22.5908 21.4459 22.5714 21.4653 22.5448C21.7074 22.2567 21.9834 21.9855 22.2789 21.7022L22.3466 21.6368C22.6227 21.3729 22.8406 21.155 23.0343 20.954C23.613 20.3511 23.9181 19.6514 23.9156 18.9274C23.9156 18.201 23.6057 17.5085 23.0198 16.9226L23.0196 16.9225ZM2.01981 5.45297C2.06824 4.90334 2.27404 4.4651 2.66388 4.07526L4.44839 2.29074C4.64452 2.10188 4.85033 2.00019 5.04159 2.00019C5.27404 2.00019 5.47985 2.15999 5.61062 2.29316L5.62515 2.30769C5.89633 2.55951 6.15782 2.82585 6.43388 3.10673L6.55979 3.23506C6.64212 3.3198 6.72686 3.40455 6.81161 3.49171C6.89393 3.57404 6.97626 3.65878 7.05858 3.74353L8.49442 5.17938C8.64454 5.3295 8.82372 5.5571 8.82372 5.78471C8.82372 6.01231 8.64454 6.2399 8.49442 6.39004C8.41936 6.4651 8.3443 6.54016 8.26924 6.61764C8.19661 6.6927 8.12155 6.76776 8.04649 6.84282L7.94479 6.94452C7.54043 7.35372 7.15545 7.74112 6.74139 8.11157L6.70023 8.15273C6.07311 8.77985 6.2886 9.42874 6.35882 9.64184C6.36367 9.65879 6.36851 9.6709 6.37335 9.68542L6.38304 9.70964C6.77529 10.6491 7.31282 11.5256 8.12638 12.5498L8.1288 12.5522C9.59369 14.3585 11.1385 15.7653 12.8552 16.8573C13.044 16.9808 13.2353 17.0776 13.4218 17.1696C13.4557 17.1866 13.492 17.2035 13.5259 17.2229L13.5283 17.2253C13.7051 17.3125 13.8746 17.3997 14.0199 17.4917L14.0634 17.5159C14.078 17.5231 14.0925 17.5328 14.107 17.5401C14.3201 17.6491 14.5404 17.7047 14.7608 17.7047C15.1337 17.7047 15.4726 17.5546 15.7681 17.2568L17.5647 15.4602C17.7051 15.3198 17.9182 15.1551 18.1506 15.1551C18.3879 15.1551 18.5937 15.3391 18.6978 15.4505L18.7026 15.4554L21.6034 18.3512C22.0198 18.7677 22.0126 19.1358 21.584 19.5813L21.5792 19.5861C21.3758 19.804 21.1603 20.0122 20.9569 20.2084L20.8988 20.2641C20.5743 20.5788 20.2402 20.9033 19.9278 21.2762C19.4532 21.7846 18.9133 22.0098 18.1772 22.0098C18.1094 22.0098 18.0319 22.005 17.9544 22.0001C16.4508 21.9033 15.0344 21.31 13.9666 20.8016C11.0271 19.3779 8.45342 17.3633 6.32023 14.8111C4.55994 12.6925 3.37836 10.724 2.59629 8.61482C2.13383 7.37028 1.94739 6.36302 2.02 5.45259L2.01981 5.45297Z" fill="white" />
+                            </svg>
+
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-md-3 col-sm-3">
+                        <p>631-870-4040</p>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <p><a class="mailNSecFooter" href="#affialiates">The Patriot Group</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7 col-md-9 col-sm-11">
+                <div class="row">
+                    <div class="col-lg-1 col-md-1 col-sm-1">
+                        <p>
+                            <svg width="34" height="24" viewBox="0 0 34 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.5999 0C1.60152 0 0 1.68666 0 3.68754V20.2999C0 22.3008 1.60159 24 3.5999 24H30.0002C31.9986 24 33.6001 22.3008 33.6001 20.2999V3.68754C33.6001 1.68666 31.9985 0 30.0002 0H3.5999ZM3.77484 2.40017H29.838L17.5129 14.1003C17.0645 14.5261 16.5625 14.5267 16.1127 14.1003L3.77484 2.40017ZM2.39983 4.4002L10.5749 12.1503L2.39983 20.3004V4.4002ZM31.2002 4.4002V20.3004L23.0501 12.1374L31.2002 4.4002ZM21.3251 13.7882L29.1123 21.6011H4.49985L12.3128 13.801L14.463 15.8384C15.7663 17.0736 17.8601 17.0756 19.1631 15.8384L21.3251 13.7882Z" fill="white" />
+                            </svg>
+                        </p>
+                    </div>
+                    <div class="col-lg-6 col-md-3 col-sm-3">
+                        <p><a class="mailNSecFooter" href="mailto:info@patriotrevenue.com">info@patriotrevenue.com</a></p>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                        <p><a class="mailNSecFooter" href="#affialiates">The Force Law Firm</a></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-7 col-md-9 col-sm-11 footer-border"></div>
+        </div>
     </div>
+</div>

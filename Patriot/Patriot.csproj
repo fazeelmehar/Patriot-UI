@@ -6,6 +6,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove=".ebextensions\**" />
+    <Compile Remove=".platform\**" />
+    <Content Remove=".ebextensions\**" />
+    <Content Remove=".platform\**" />
+    <EmbeddedResource Remove=".ebextensions\**" />
+    <EmbeddedResource Remove=".platform\**" />
+    <None Remove=".ebextensions\**" />
+    <None Remove=".platform\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Migrations\20221007132300_initDB.cs" />
     <Compile Remove="Migrations\20221007132300_initDB.Designer.cs" />
   </ItemGroup>

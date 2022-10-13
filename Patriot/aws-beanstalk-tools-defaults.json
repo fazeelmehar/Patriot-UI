@@ -10,7 +10,7 @@
     "iis-website"    : "Default Web Site",
     "enable-xray"    : false,
     "enhanced-health-type" : "basic",
-    "additional-options"   : "\"aws:autoscaling:launchconfiguration,SecurityGroups\"=\"sg-90a4b78e\";\"aws:ec2:vpc,Subnets\"=\"subnet-5808293e\"",
+    "additional-options"   : "",
     "solution-stack"       : "64bit Amazon Linux 2 v2.4.0 running .NET Core",
     "environment-type"     : "SingleInstance",
     "cname"                : "patriot-ui-prod",
