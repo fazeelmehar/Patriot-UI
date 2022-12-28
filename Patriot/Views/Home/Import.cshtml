@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Import";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+
+}
+<div class="container-fluid px-5">
+    <h1 class="main-headingg mb-5">
+        Import CPT letter
+    </h1>
+    @if(TempData["Error"] != null){
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Error!</strong> @TempData["Error"].ToString() .
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    <form asp-controller="Home" asp-action="Import" method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-5">
+                        <input type="file" name="file" class="form-control-file" />
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" class="btn btn-secondary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+

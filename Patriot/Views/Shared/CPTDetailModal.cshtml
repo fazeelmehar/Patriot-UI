@@ -1,0 +1,160 @@
+﻿@model Patriot.DomainModel.CPTLetter.CPTLetterReadModel
+
+
+            <!-- Modal Header
+            <div class="modal-header">
+              <h4 class="modal-title">Modal Heading</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div> -->
+            <!-- Modal body -->
+            <div class="modal-body position-relative">
+
+                <img type="button" src="~/images/dashboard/Cross-sign.png" alt="Close" class="position-absolute top-30-right-30" data-bs-dismiss="modal">
+
+                <div class="row pb-4 pt-3">
+
+
+                    <div class="col-sm-7 position-relative pr-40">
+                        <table class="pop-up-table w-100">
+                            <tr>
+                                <th>Client:</th>
+                                <td>@Model.Client</td>
+                                <th>Patient name :</th>
+                                <td>@Model.PatientLastName, @Model.PatientFirstName</td>
+                            </tr>
+
+                            <tr>
+                                <th>Visit #:</th>
+                                <td>@Model.VisitNo</td>
+                                <th>Check amount:</th>
+                                <td>$@Model.CheckAmount.ToString("N2")</td>
+                            </tr>
+                            <tr>
+                                <th>DOS:</th>
+                                <td>@Model.DOS.ToString("MM/dd/yyyy")</td>
+                                <th>Date letter was mailed :</th>
+                                <td>@Model.DateLetterWasMailed TJF</td>
+                            </tr>
+
+                            <tr>
+                                <th>Status:</th>
+                                <td>
+                                    <button type="button" class="btn btn-parrot dropdown-toggle fs-14" data-bs-toggle="dropdown" aria-expanded="false">
+                                        @Model.Status
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Action</a></li>
+                                        <li><a class="dropdown-item" href="#">@(Model.Status == "Active" ? "Stand By" : "Active")</a></li>
+                                    </ul>
+                    </div>
+                    </td>
+                  @*  <th>Game plan :</th>
+                    <td>
+                        <button type="button" class="btn dropdown-toggle fs-14 dropdown-shadow" data-bs-toggle="dropdown" aria-expanded="false">
+                            Alpha
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Stand By</a></li>
+                        </ul>
+                    </td>*@
+                    </tr>
+
+                    <tr>
+                        <th class="pb-3">Address line 1:</th>
+                        <td class="pb-3">@Model.Address1.</td>
+                        <th class="pb-3">City :</th>
+                        <td class="pb-3">@Model.City</td>
+                    </tr>
+                    <tr>
+                        <th>Address line 2:</th>
+                        <td>@Model.Address2</td>
+                        <th>State :</th>
+                        <td>@Model.State</td>
+                    </tr>
+                    <tr>
+                        <th>Zip code :</th>
+                        <td>@Model.Zipcode</td>
+                    </tr>
+                    </table>
+
+                    <div class="d-flex align-items-center position-absolute bottom-0">
+                        <ul class="pagination pagination-lg gap-2 mx-2  mb-0">
+                            <li class="page-item">
+                                <a class="page-link radius-20 border-0" href="#">
+                                    <img src="~/images/dashboard/pagination-backward.png" alt="backward">
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link radius-20" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link radius-20" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link radius-20" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link radius-20 border-0" href="#">
+                                    <img src="~/images/dashboard/pagination-forward.png" alt="forward">
+                                </a>
+                            </li>
+                        </ul>
+                        <div>
+                            <p class="text-secondary mb-0">
+                                CPT letter stage 3
+                            </p>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="col-sm-5 pr-60 comments">
+
+                    <p>
+                        Comments
+                    </p>
+
+                    <div>
+                        <div class="my-2">
+                            <img src="~/images/dashboard/RN.png" alt="">
+                        </div>
+
+                        <p class="fw-700">
+                            ROB   <span> 1 day ago</span>
+                        </p>
+                        <p>
+                            @Model.Comments
+                        </p>
+                    </div>
+
+                    <hr class="mx-3 text-secondary">
+
+                    <div class="text-secondary">
+
+                        <div class="my-2">
+                            <img src="~/images/dashboard/RN-light.png" alt="">
+                        </div>
+
+                        <p class="fw-700">
+                            ROB   <span> 1 day ago</span>
+                        </p>
+                        <p>
+                            Sent CTP Letter 10/29/2022 TJF  11/9/22 email response to pt email by Force. 11/12/22 Pt says BC Told him check sent to Elite PO Box but not cashed.  Asked pt if BC will reissue the check?
+                        </p>
+                    </div>
+
+                    <hr class="mx-3 mb-4">
+
+                    <div class="add-comment d-flex">
+                        <div class="input-div">
+                            <input type="text" placeholder="Add a comment">
+                        </div>
+                        <div>
+                            <img src="~/images/dashboard/Submit-icon.png" alt="">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        <!-- Modal footer -->
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div> -->

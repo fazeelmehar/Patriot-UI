@@ -1,0 +1,116 @@
+﻿@{
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    @model IEnumerable<Patriot.DomainModel.CPTLetter.CPTLetterReadModel>
+
+}
+<div class="container-fluid px-5">
+    <h1 class="main-headingg mb-5">
+        CPT letter generation
+    </h1>
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Error!</strong> @TempData["Error"].ToString() .
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    <table class="table main-info-table">
+        <tbody>
+            <tr>
+                <th>Client</th>
+                <th>Visit #</th>
+                <th>Patient <br> name</th>
+                <th class="col-1">Date of service</th>
+                <th class="col-1">Check amount</th>
+                <th class="col-2">Comments</th>
+                <th class="col-1">Status</th>
+                @*<th class="col-1">Game plan</th>*@
+                <th>Date letter was mailed</th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style ="cursor:pointer" onclick="OpenModal(@item.Id)">@item.Client</td>
+                    <td>@item.VisitNo</td>
+                    <td>@item.PatientLastName, @item.PatientFirstName</td>
+                    <td>@item.DOS.ToString("MM/dd/yyyy")</td>
+                    <td>$@item.CheckAmount.ToString("N2")</td>
+                    <td>
+                        <div class="position-relative">
+                            <div class="position-absolute left--20">
+                                <img src="~/images/dashboard/Ellipse 1.png" alt="">
+                            </div>
+                            <div>@item.Comments</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-parrot dropdown-toggle fs-14" data-bs-toggle="dropdown" aria-expanded="false">
+                                @item.Status
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">@(item.Status == "Active" ? "Stand By" : "Active")</a></li>
+
+                            </ul>
+                        </div>
+                    </td>
+                    @*                    <td>
+                <div class="btn-group fs-14">
+                <button type="button" class="btn dropdown-toggle fs-14 dropdown-shadow" data-bs-toggle="dropdown" aria-expanded="false">
+                Alpha
+                </button>
+                <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Stand By</a></li>
+                </ul>
+                </div>
+                </td>
+                *@
+                    <td>@item.DateLetterWasMailed</td>
+                    <td>
+                        <button type="button" class="btn btn-outline-danger">Generate</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+    <!-- Modal area start -->
+    <!-- Modal area start -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    async function OpenModal(val) {
+        $('.spinner').css('display', 'block');
+        await $.ajax({
+            url: "/home/CPTLetterGetById",
+            data: { id: val },
+            method: 'GET',
+            success: function (result) {
+                if (result.includes("html")) {
+                    $('.spinner').css('display', 'none');
+                    alert("Record not found");
+                }
+                else {
+                    $('.spinner').css('display', 'none');
+                    $('.modal-content').html(result);
+                    $('#myModal').modal('show');
+                }
+            },
+            error: function (err) {
+                debugger
+                alert(err);
+                $('.spinner').css('display', 'none');
+            }
+        });
+    }
+</script>

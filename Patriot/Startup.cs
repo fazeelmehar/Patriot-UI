@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Patriot.Database;
+using Patriot.Helper;
 using Patriot.Mappers;
 using System.IO;
 
@@ -25,11 +26,12 @@ namespace Patriot
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
-           
+
             services.AddDomainAutoMapper();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<DataContext>();
+            services.AddScoped<ImportService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
