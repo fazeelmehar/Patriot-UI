@@ -27,7 +27,7 @@ namespace Patriot.Helper
                 if (!file.FileName.Contains(".xlsx") || !file.FileName.Contains(".xls"))
                     throw new Exception("File Format must be (xlsx or xls)");
 
-                var CPTLetters = new List<CPTLetter>();
+                var MasterLetters = new List<MasterLetter>();
                 using (var stream = new System.IO.MemoryStream())
                 {
                     file.CopyTo(stream);
@@ -40,32 +40,33 @@ namespace Patriot.Helper
 
                         for (int i = 2; i <= totalRows; i++)
                         {
-                            var cptLetter = new CPTLetter();
+                            var masterLetter = new MasterLetter();
 
-                            cptLetter.Client = Convert.ToString(workSheet.Cells[i, 1].Value);
-                            cptLetter.VisitNo = Convert.ToString(workSheet.Cells[i, 2].Value);
-                            cptLetter.PatientLastName = Convert.ToString(workSheet.Cells[i, 3].Value);
-                            cptLetter.PatientFirstName = Convert.ToString(workSheet.Cells[i, 4].Value);
-                            cptLetter.DOS = DateTime.Parse(Convert.ToString(workSheet.Cells[i, 5].Value));
-                            cptLetter.CheckAmount = Convert.ToDecimal(workSheet.Cells[i, 6].Value);
-                            cptLetter.DatesOfCPTLetter = Convert.ToString(workSheet.Cells[i, 7].Value);
-                            cptLetter.Comments = Convert.ToString(workSheet.Cells[i, 8].Value);
-                            cptLetter.Status = Convert.ToString(workSheet.Cells[i, 9].Value);
-                            cptLetter.DateLetterWasMailed = Convert.ToString(workSheet.Cells[i, 10].Value);
-                            cptLetter.Address1 = Convert.ToString(workSheet.Cells[i, 11].Value);
-                            cptLetter.Address2 = Convert.ToString(workSheet.Cells[i, 12].Value);
-                            cptLetter.City = Convert.ToString(workSheet.Cells[i, 13].Value);
-                            cptLetter.State = Convert.ToString(workSheet.Cells[i, 14].Value);
-                            cptLetter.Zipcode = Convert.ToString(workSheet.Cells[i, 15].Value);
-                            cptLetter.Created = DateTime.Now;
+                            masterLetter.Client = Convert.ToString(workSheet.Cells[i, 1].Value);
+                            masterLetter.Entity = Convert.ToString(workSheet.Cells[i, 2].Value);
+                            masterLetter.LetterType = Convert.ToString(workSheet.Cells[i, 3].Value);
+                            masterLetter.VisitNo = Convert.ToString(workSheet.Cells[i, 4].Value);
+                            masterLetter.InsuranceName = Convert.ToString(workSheet.Cells[i, 5].Value);
+                            masterLetter.InsuranceID = Convert.ToString(workSheet.Cells[i, 6].Value);
+                            masterLetter.LastName = Convert.ToString(workSheet.Cells[i, 7].Value);
+                            masterLetter.FirstName = Convert.ToString(workSheet.Cells[i, 8].Value);
+                            masterLetter.DOS = DateTime.Parse(Convert.ToString(workSheet.Cells[i, 9].Value));
+                            masterLetter.CheckAmount = Convert.ToDecimal(workSheet.Cells[i, 10].Value);
+                            masterLetter.Address1 = Convert.ToString(workSheet.Cells[i, 11].Value);
+                            masterLetter.Address2 = Convert.ToString(workSheet.Cells[i, 12].Value);
+                            masterLetter.City = Convert.ToString(workSheet.Cells[i, 13].Value);
+                            masterLetter.State = Convert.ToString(workSheet.Cells[i, 14].Value);
+                            masterLetter.Zipcode = Convert.ToString(workSheet.Cells[i, 15].Value);
+                            masterLetter.ImportDate = DateTime.Now;
+                            masterLetter.LetterGeneratedIndex = 0;
 
-                            CPTLetters.Add(cptLetter);
+                            MasterLetters.Add(masterLetter);
                         }
                     }
                 }
 
                 //add new records
-                _DataContext.CPTLetters.AddRange(CPTLetters);
+                _DataContext.MasterLetters.AddRange(MasterLetters);
                 _DataContext.SaveChanges();
             }
             catch (System.Exception ex)

@@ -10,6 +10,7 @@ namespace Patriot.Database
 
         }
         public DbSet<Contact> Contacts { get; set; }
-        public DbSet<CPTLetter> CPTLetters { get; set; }
+        public DbSet<MasterLetter> MasterLetters { get; set; }
+        public DbSet<GenerateLetters> GenerateLetters { get; set; }
     }
 }

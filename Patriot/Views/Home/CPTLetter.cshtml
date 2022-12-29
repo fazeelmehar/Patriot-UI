@@ -1,12 +1,21 @@
 ﻿@{
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
-    @model IEnumerable<Patriot.DomainModel.CPTLetter.CPTLetterReadModel>
+    @model IEnumerable<Patriot.DomainModel.CPTLetter.MasterLetterReadModel>
 
 }
 <div class="container-fluid px-5">
-    <h1 class="main-headingg mb-5">
-        CPT letter generation
-    </h1>
+    <div class="row">
+        <div class="col-5">
+            <h1 class="main-headingg mb-5">
+                CPT letter generation
+            </h1>
+        </div>
+        <div class="col-2 offset-5">
+            <button onclick="GenerateBulkLetters()" type="button" id="IdGenerateBulkLetters" class="btn btn-outline-danger">Generate Bulk Letters</button>
+        </div>
+    </div>
+
+
     @if (TempData["Error"] != null)
     {
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -17,46 +26,55 @@
     <table class="table main-info-table">
         <tbody>
             <tr>
+
+                <th><input onchange="CheckAll()" name="mainCheckBox" type="checkbox" class="form-check form-check-input" /></th>
                 <th>Client</th>
+                <th>Entity</th>
+                <th>Letter Type</th>
                 <th>Visit #</th>
+                <th>Insurance Name</th>
+                <th>Insurance ID</th>
                 <th>Patient <br> name</th>
                 <th class="col-1">Date of service</th>
                 <th class="col-1">Check amount</th>
-                <th class="col-2">Comments</th>
-                <th class="col-1">Status</th>
-                @*<th class="col-1">Game plan</th>*@
-                <th>Date letter was mailed</th>
+                <th>Import Date</th>
                 <th></th>
             </tr>
 
             @foreach (var item in Model)
             {
                 <tr>
-                    <td style ="cursor:pointer" onclick="OpenModal(@item.Id)">@item.Client</td>
+                    <td><input name="@item.Id" type="checkbox" class="form-check form-check-input" /></td>
+                    <td style="cursor:pointer" onclick="OpenModal(@item.Id)">@item.Client</td>
+                    <td>@item.Entity</td>
+                    <td>@item.LetterType</td>
                     <td>@item.VisitNo</td>
-                    <td>@item.PatientLastName, @item.PatientFirstName</td>
+                    <td>@item.InsuranceName</td>
+                    <td>@item.InsuranceID</td>
+                    <td>@item.LastName, @item.FirstName</td>
                     <td>@item.DOS.ToString("MM/dd/yyyy")</td>
                     <td>$@item.CheckAmount.ToString("N2")</td>
-                    <td>
-                        <div class="position-relative">
-                            <div class="position-absolute left--20">
-                                <img src="~/images/dashboard/Ellipse 1.png" alt="">
-                            </div>
-                            <div>@item.Comments</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-parrot dropdown-toggle fs-14" data-bs-toggle="dropdown" aria-expanded="false">
-                                @item.Status
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">@(item.Status == "Active" ? "Stand By" : "Active")</a></li>
+                    <td>@item.ImportDate.ToString("MM/dd/yyyy hh:mm tt")</td>
+                    @*<td>
+                <div class="position-relative">
+                <div class="position-absolute left--20">
+                <img src="~/images/dashboard/Ellipse 1.png" alt="">
+                </div>
+                <div>@item.Comments</div>
+                </div>
+                </td>*@
+                    @*   <td>
+                <div class="btn-group">
+                <button type="button" class="btn btn-parrot dropdown-toggle fs-14" data-bs-toggle="dropdown" aria-expanded="false">
+                @item.Status
+                </button>
+                <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">@(item.Status == "Active" ? "Stand By" : "Active")</a></li>
 
-                            </ul>
-                        </div>
-                    </td>
+                </ul>
+                </div>
+                </td>*@
                     @*                    <td>
                 <div class="btn-group fs-14">
                 <button type="button" class="btn dropdown-toggle fs-14 dropdown-shadow" data-bs-toggle="dropdown" aria-expanded="false">
@@ -69,9 +87,9 @@
                 </div>
                 </td>
                 *@
-                    <td>@item.DateLetterWasMailed</td>
+                    @*<td>@item.DateLetterWasMailed</td>*@
                     <td>
-                        <button type="button" class="btn btn-outline-danger">Generate</button>
+                        <button onclick="GenerateSingleLetter('@item.Id')" type="button" class="btn btn-outline-danger">Generate</button>
                     </td>
                 </tr>
             }
@@ -107,10 +125,82 @@
                 }
             },
             error: function (err) {
-                debugger
                 alert(err);
                 $('.spinner').css('display', 'none');
             }
         });
+    }
+    async function GenerateSingleLetter(id) {
+        var Ids = [];
+        Ids.push(id);
+
+        $('.spinner').css('display', 'block');
+        await $.ajax({
+            url: "/home/GenerateCPTLetter",
+            data: { Ids },
+            method: 'POST',
+            success: function (result) {
+                $('.spinner').css('display', 'none');
+                alert("Record not found");
+            },
+            error: function (err) {
+                alert(err);
+                $('.spinner').css('display', 'none');
+            }
+        });
+    }
+
+    async function GenerateBulkLetters() {
+        var Ids = [];
+        $('table tr').each(function (i) {
+            // Cache checkbox selector
+            var $chkbox = $(this).find('input[type="checkbox"]');
+            // Only check rows that contain a checkbox
+            if ($chkbox.length) {
+                var status = $chkbox.prop('checked');
+                if (status) {
+                    Ids.push($chkbox.prop('name'));
+                }
+            }
+        });
+        if (Ids.length == 1) {
+            alert("Atleast one client is required");
+        }
+        $('.spinner').css('display', 'block');
+        await $.ajax({
+            url: "/home/GenerateCPTLetter",
+            data: { Ids },
+            method: 'POST',
+            success: function (result) {
+                $('.spinner').css('display', 'none');
+                alert("Record not found");
+            },
+            error: function (err) {
+                alert(err);
+                $('.spinner').css('display', 'none');
+            }
+        });
+    }
+    function CheckAll() {
+        if ($("input[name='mainCheckBox']").prop('checked')) {
+            $('table tr').each(function (i) {
+                // Cache checkbox selector
+                var $chkbox = $(this).find('input[type="checkbox"]');
+                // Only check rows that contain a checkbox
+                if ($chkbox.length) {
+                    $chkbox.prop('checked', true);
+                }
+            });
+        }
+        else {
+            $('table tr').each(function (i) {
+                // Cache checkbox selector
+                var $chkbox = $(this).find('input[type="checkbox"]');
+                // Only check rows that contain a checkbox
+                if ($chkbox.length) {
+                    $chkbox.prop('checked', false);
+                }
+            });
+        }
     }
 </script>

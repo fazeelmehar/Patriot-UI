@@ -9,10 +9,10 @@ namespace Patriot.Mappers
     {
         public CPTLetterMappingProfile()
         {
-            CreateMap<CPTLetterCreateModel, CPTLetter>()
-                     .ForMember(d => d.Created, opt => opt.MapFrom(source => System.DateTime.Now));
+            CreateMap<MasterLetterCreateModel, MasterLetter>()
+                     .ForMember(d => d.ImportDate, opt => opt.MapFrom(source => System.DateTime.Now));
 
-            CreateMap<CPTLetter, CPTLetterReadModel>();
+            CreateMap<MasterLetter, MasterLetterReadModel>();
         }
     }
 }

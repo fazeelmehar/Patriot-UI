@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Patriot.Database;
 
 namespace Patriot.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20221229131602_tblchanges")]
+    partial class tblchanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,88 +46,6 @@ namespace Patriot.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Contacts");
-                });
-
-            modelBuilder.Entity("Patriot.Database.Domain.GenerateLetters", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Address1")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Address2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("CheckAmount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Client")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Comments")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DOS")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateLetterWasMailed")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Entity")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("InsuranceID")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("InsuranceName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("LetterGenerated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("LetterGeneratedIndex")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("LetterPrinted")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("LetterType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LoggedUser")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("MasterLetterId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("State")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("VisitNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Zipcode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MasterLetterId");
-
-                    b.ToTable("GenerateLetters");
                 });
 
             modelBuilder.Entity("Patriot.Database.Domain.MasterLetter", b =>
@@ -191,15 +111,6 @@ namespace Patriot.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("MasterLetters");
-                });
-
-            modelBuilder.Entity("Patriot.Database.Domain.GenerateLetters", b =>
-                {
-                    b.HasOne("Patriot.Database.Domain.MasterLetter", "MasterLetter")
-                        .WithMany()
-                        .HasForeignKey("MasterLetterId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Microsoft.Extensions.Logging;
 using Patriot.Database;
 using Patriot.Database.Domain;
@@ -58,10 +59,6 @@ namespace Patriot.Controllers
         {
             return View();
         }
-        public IActionResult ImportCPTLetter()
-        {
-            return View();
-        }
 
         [HttpPost]
         public IActionResult Import(IFormFile file)
@@ -87,10 +84,10 @@ namespace Patriot.Controllers
         }
         public IActionResult CPTLetter()
         {
-            var cptLetters = new List<CPTLetterReadModel>();
+            var cptLetters = new List<MasterLetterReadModel>();
             try
             {
-                cptLetters = _mapper.Map<List<CPTLetterReadModel>>(_dataContext.CPTLetters.ToList());
+                cptLetters = _mapper.Map<List<MasterLetterReadModel>>(_dataContext.MasterLetters.Where(x => x.LetterType.ToLower() == "cpt").ToList());
             }
             catch (Exception ex)
             {
@@ -100,15 +97,15 @@ namespace Patriot.Controllers
             return View(cptLetters);
         }
 
-        public IActionResult CPTLetterGetById(int id)
+        public IActionResult CPTLetterGetById(Guid id)
         {
-            if (id <= 0)
+            if (string.IsNullOrEmpty(id.ToString()))
                 throw new Exception("Id cannot be null");
 
-            var cptLetters = new CPTLetterReadModel();
+            var cptLetters = new MasterLetterReadModel();
             try
             {
-                cptLetters = _mapper.Map<CPTLetterReadModel>(_dataContext.CPTLetters.Where(x => x.Id == id).FirstOrDefault());
+                cptLetters = _mapper.Map<MasterLetterReadModel>(_dataContext.MasterLetters.Where(x => x.LetterType.ToLower() == "cpt" && x.Id == id).FirstOrDefault());
                 if (cptLetters == null)
                     throw new Exception("Record not found");
             }
@@ -118,6 +115,12 @@ namespace Patriot.Controllers
                 return RedirectToAction("CPTLetter");
             }
             return PartialView("CPTDetailModal", cptLetters);
+        }
+
+        [HttpPost]
+        public  IActionResult GenerateCPTLetter(List<string> Ids)
+        {
+            return View();
         }
     }
 }

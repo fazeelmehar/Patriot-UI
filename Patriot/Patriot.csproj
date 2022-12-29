@@ -9,6 +9,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20221007132300_initDB.cs" />
     <Compile Remove="Migrations\20221007132300_initDB.Designer.cs" />
+    <Compile Remove="Migrations\20221229135748_newGenerateLetterTbl.cs" />
+    <Compile Remove="Migrations\20221229135748_newGenerateLetterTbl.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

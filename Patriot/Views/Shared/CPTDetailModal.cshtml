@@ -1,4 +1,4 @@
-﻿@model Patriot.DomainModel.CPTLetter.CPTLetterReadModel
+﻿@model Patriot.DomainModel.CPTLetter.MasterLetterReadModel
 
 
             <!-- Modal Header
@@ -19,8 +19,8 @@
                             <tr>
                                 <th>Client:</th>
                                 <td>@Model.Client</td>
-                                <th>Patient name :</th>
-                                <td>@Model.PatientLastName, @Model.PatientFirstName</td>
+                                <th>Patient name:</th>
+                                <td>@Model.LastName, @Model.FirstName</td>
                             </tr>
 
                             <tr>
@@ -33,18 +33,18 @@
                                 <th>DOS:</th>
                                 <td>@Model.DOS.ToString("MM/dd/yyyy")</td>
                                 <th>Date letter was mailed :</th>
-                                <td>@Model.DateLetterWasMailed TJF</td>
+                                @*<td>@Model.DateLetterWasMailed TJF</td>*@
                             </tr>
 
                             <tr>
                                 <th>Status:</th>
                                 <td>
                                     <button type="button" class="btn btn-parrot dropdown-toggle fs-14" data-bs-toggle="dropdown" aria-expanded="false">
-                                        @Model.Status
+                                        @*@Model.Status*@
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">@(Model.Status == "Active" ? "Stand By" : "Active")</a></li>
+                                        @*<li><a class="dropdown-item" href="#">@(Model.Status == "Active" ? "Stand By" : "Active")</a></li>*@
                                     </ul>
                     </div>
                     </td>
@@ -121,7 +121,7 @@
                             ROB   <span> 1 day ago</span>
                         </p>
                         <p>
-                            @Model.Comments
+                            @*@Model.Comments*@
                         </p>
                     </div>
 
